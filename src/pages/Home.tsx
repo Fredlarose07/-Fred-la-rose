@@ -1,4 +1,4 @@
-import React from 'react' // Import requis pour React.Fragment si tu n'as pas le nouveau transform
+import React from 'react'
 import chillImg from '../assets/Chill.jpg'
 import ProfileCard from '../components/ProfileCard'
 import ProjectCard from '../components/ProjectCard'
@@ -19,21 +19,39 @@ function Home() {
                     </aside>
 
                     {/* Main Content */}
-                    <main className="w-full flex-1 flex flex-col gap-8">
+                    <main className="w-full flex-1 flex flex-col gap-12">
 
+                        {/* Hero */}
+                        <div className="flex flex-col gap-4 text-center md:text-left">
+                            <h1 className="font-display font-bold text-6xl lg:text-8xl text-neutral-100 leading-none tracking-tight">
+                                FAIL{' '}
+                                <span
+                                    style={{
+                                        WebkitTextStroke: '2px rgba(255,255,255,0.9)',
+                                        color: 'transparent',
+                                    }}
+                                >
+                                    BUILDER
+                                </span>
+                            </h1>
+                            <p className="font-body text-sm text-neutral-50 max-w-md leading-relaxed mx-auto md:mx-0">
+                                Pas d'école prestigieuse, pas de GAFAM dans le CV, une boîte qui a coulé…
+                                je construis des choses qui foirent. Parfois elles servent quand même et ça me fait kiffer.
+                            </p>
+                        </div>
+
+                        {/* Projets */}
                         <section className="flex flex-col gap-4">
                             <SectionLabel label="Mon atelier" />
 
-                            {/* Container Projets */}
                             <div className="flex flex-col w-full bg-neutral-3 border border-neutral-6 rounded-lg p-1">
                                 {projects.map((project, index) => (
                                     <React.Fragment key={project.id}>
-                                        <ProjectCard 
-                                            {...project} 
-                                            isFirst={index === 0} 
-                                            isLast={index === projects.length - 1} 
+                                        <ProjectCard
+                                            {...project}
+                                            isFirst={index === 0}
+                                            isLast={index === projects.length - 1}
                                         />
-                                        {/* Séparateur horizontal */}
                                         {index < projects.length - 1 && (
                                             <div className="mx-4 h-px bg-neutral-6 my-1 opacity-50" />
                                         )}
