@@ -4,10 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   body {
-    @apply bg-bg text-neutral-90 font-display antialiased;
+    background-color: #181614;
+    @apply text-neutral-90 font-display antialiased;
   }
 }

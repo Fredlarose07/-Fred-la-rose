@@ -8,7 +8,7 @@ import { projects } from '../config/projects'
 
 function Home() {
     return (
-        <div className="min-h-screen bg-bg text-neutral-100 selection:bg-accent/30 font-body">
+        <div className="min-h-screen text-neutral-100 selection:bg-accent/30 font-body">
             <div className="max-w-[1440px] mx-auto px-6 md:px-12 xl:px-[190px] pt-12 md:pt-20 pb-32">
 
                 <div className="flex flex-col md:flex-row gap-16 lg:gap-24 items-start">

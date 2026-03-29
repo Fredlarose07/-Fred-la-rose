@@ -1,24 +1,27 @@
+import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 
 interface ProjectCardProps {
+  id: number
   thumbnail: string
   title: string
+  subtitle?: string
+  tagline: string
   description: string
-  href?: string
   isFirst?: boolean
   isLast?: boolean
 }
 
-function ProjectCard({ 
-  thumbnail, 
-  title, 
-  description, 
-  href, 
-  isFirst, 
-  isLast 
+function ProjectCard({
+  id,
+  thumbnail,
+  title,
+  subtitle,
+  tagline,
+  isFirst,
+  isLast
 }: ProjectCardProps) {
-  
-  // Construction dynamique des classes d'arrondi
+
   const roundedClasses = `
     rounded-[4px] 
     ${isFirst ? 'rounded-t-[12px]' : ''} 
@@ -26,10 +29,8 @@ function ProjectCard({
   `
 
   return (
-    <a 
-      href={href ?? '#'}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      to={`/projects/${id}`}
       className={`relative flex flex-col md:flex-row items-start md:items-center gap-4 p-4 transition-all duration-200 group hover:bg-neutral-6 ${roundedClasses}`}
     >
       {/* Thumbnail */}
@@ -44,10 +45,10 @@ function ProjectCard({
       {/* Content */}
       <div className="flex flex-col gap-1 flex-1 min-w-0 pr-8 md:pr-0">
         <span className="font-display font-medium text-base text-neutral-90 leading-tight">
-          {title}
+          {title}{subtitle ? ` — ${subtitle}` : ''}
         </span>
         <p className="font-body font-normal text-[13px] text-neutral-30 leading-snug line-clamp-2">
-          {description}
+          {tagline}
         </p>
       </div>
 
@@ -59,7 +60,7 @@ function ProjectCard({
           className="text-icon-default group-hover:text-icon-active transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
         />
       </div>
-    </a>
+    </Link>
   )
 }
 
