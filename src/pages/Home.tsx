@@ -3,8 +3,15 @@ import chillImg from '../assets/Chill.jpg'
 import ProfileCard from '../components/ProfileCard'
 import ProjectCard from '../components/ProjectCard'
 import SectionLabel from '../components/SectionLabel'
+import GardenCard, { GardenCardSkeleton } from '../components/GardenCard'
+import { categories } from '../config/categories'
 import LinkButton from '../components/LinkButton'
 import { projects } from '../config/projects'
+
+const MAX_DISPLAY = 6
+const displayed = categories.slice(0, MAX_DISPLAY)
+const skeletons = MAX_DISPLAY - displayed.length
+
 
 function Home() {
     return (
@@ -61,6 +68,22 @@ function Home() {
 
                             <div className="flex md:justify-end pr-1">
                                 <LinkButton label="Voir tous les projets" href="/projects" />
+                            </div>
+                        </section>
+
+                        {/* Mon Jardin */}
+                        <section className="flex flex-col gap-4">
+                            <SectionLabel label="Mon jardin" />
+                            <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
+                                {displayed.map(category => (
+                                    <GardenCard key={category.id} {...category} />
+                                ))}
+                                {Array.from({ length: skeletons }).map((_, i) => (
+                                    <GardenCardSkeleton key={`skeleton-${i}`} />
+                                ))}
+                            </div>
+                            <div className="flex md:justify-end pr-1">
+                                <LinkButton label="Voir mon jardin" href="/garden" />
                             </div>
                         </section>
 
