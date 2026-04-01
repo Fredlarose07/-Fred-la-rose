@@ -1,5 +1,4 @@
 import { Brain, Palette, Code, BookOpen } from '@phosphor-icons/react'
-import type { LucideIcon } from 'lucide-react'
 
 export type Grade = 'Iron' | 'Bronze' | 'Silver' | 'Gold' | 'Platinum' | 'Diamond'
 
