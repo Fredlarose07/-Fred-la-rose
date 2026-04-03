@@ -7,6 +7,8 @@ import GardenCard, { GardenCardSkeleton } from '../components/GardenCard'
 import { categories } from '../config/categories'
 import LinkButton from '../components/LinkButton'
 import { projects } from '../config/projects'
+import PersonalityChart from '../components/PersonalityChart'
+
 
 const MAX_DISPLAY = 6
 const displayed = categories.slice(0, MAX_DISPLAY)
@@ -85,6 +87,13 @@ function Home() {
                             <div className="flex md:justify-end pr-1">
                                 <LinkButton label="Voir mon jardin" href="/garden" />
                             </div>
+                        </section>
+
+                        {/* Mon Portrait */}
+                        <section className="flex flex-col gap-4">
+                            <SectionLabel label="Mon portrait" />
+                            <PersonalityChart />
+                    
                         </section>
 
                     </main>

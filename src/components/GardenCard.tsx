@@ -45,7 +45,7 @@ function GardenCard({ name, icon: Icon, notesCount, grade }: GardenCardProps) {
 
                     <span className="text-[10px] font-medium px-2 py-0.5 rounded-full border border-neutral-10 text-neutral-30">
                         <span className="group-hover:hidden">{grade}</span>
-                        <span className="hidden group-hover:inline" style={{ color: gradeColor }}>{grade}</span>
+                        <span className="hidden group-hover:inline" style={{ color: '#888780' }}>{grade}</span>
                     </span>
                 </div>
 
